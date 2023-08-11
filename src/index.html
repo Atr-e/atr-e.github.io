@@ -1,23 +1,33 @@
 <!DOCTYPE html>
+<html>
 <title>
     Atr-e.github.io
 </title>
 <body>
     <h1>hello</h1>
+    
+    <p>Click the button to get your coordinates.</p>
+    
+    <button onclick="getLocation()">Try It</button>
+    
+    <p id="demo"></p>
+    
     <script>
-        const myElement = document.getElementById("demo");
-
+    const x = document.getElementById("demo");
+    
     function getLocation() {
-    if (navigator.geolocation) {
+      try {
         navigator.geolocation.getCurrentPosition(showPosition);
-    } else {
-        myElement.innerHTML = "Geolocation is not supported by this browser.";
+      } catch {
+        x.innerHTML = err;
+      }
     }
-    }
-
+    
     function showPosition(position) {
-    myElement.innerHTML = "Latitude: " + position.coords.latitude + "<br>Longitude: " + position.coords.longitude;
+      x.innerHTML = "Latitude: " + position.coords.latitude + 
+      "<br>Longitude: " + position.coords.longitude;
     }
-
     </script>
+    
 </body>
+</html>

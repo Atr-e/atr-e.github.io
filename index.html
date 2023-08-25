@@ -33,7 +33,11 @@
       some government API shenanigans
     </h2>
     <script>
-
+        import com.google.gson.*;
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        JsonParser jp = new JsonParser();
+        JsonElement je = jp.parse(uglyJsonString);
+        String prettyJsonString = gson.toJson(je);
     </script>
  <!-- https://api.fiscaldata.treasury.gov/services/api/fiscal_service -->   
  <!-- yes -->
